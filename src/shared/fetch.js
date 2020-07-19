@@ -3,7 +3,6 @@ const baseUrl = process.env.REACT_APP_BASE_URL || 'https://jsonplaceholder.typic
 export const sendRequest = (url) => {
   return fetch(baseUrl + url)
       .then(response => {
-            console.log(url)
             if (response.ok) {
               return response;
             } else {
@@ -13,8 +12,7 @@ export const sendRequest = (url) => {
             }
           },
           error => {
-            var errorMessage = new Error(error.message);
-            throw errorMessage;
+            throw new Error(error.message);
           })
       .then(response => response.json());
 }
