@@ -1,0 +1,21 @@
+.post {
+  padding: 5px 0;
+  margin: 15px 0;
+
+  .card-title {
+    border-bottom: 1px solid #391A54;
+  }
+
+  button {
+    background: #391A54;
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}
