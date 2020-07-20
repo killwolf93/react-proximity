@@ -8,7 +8,12 @@
 
   .card-body {
     padding: 15px;
-    button {
+
+    form {
+      margin-bottom: 15px;
+    }
+
+    button, input[type="submit"] {
       background: #391A54;
       color: white;
 

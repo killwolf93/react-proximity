@@ -4,7 +4,7 @@ const defaultState = {errorMessage: null, posts: [], isLoading: true}
 const defaultCommentsState = {errorMessage: null, comments: [], isLoading: false}
 
 export const Posts = (state = defaultState, action) => {
-  let posts = [], newState;
+  let posts = [], newState, comments;
   switch (action.type) {
     case ActionTypes.ADD_POSTS:
       action.payload.forEach(post => posts.push(generatePostObject(post)))
@@ -15,9 +15,20 @@ export const Posts = (state = defaultState, action) => {
       return {...state, isLoading: false, errorMessage: action.payload, posts: []}
     case ActionTypes.ADD_COMMENTS:
       newState = {...state}
+      comments = newState.posts[action.payload.postId - 1].comments.comments;
       newState.posts[action.payload.postId - 1].comments = {
         errorMessage: null,
-        comments: action.payload.comments,
+        comments: comments.concat(action.payload.comments),
+        isLoading: false
+      }
+      return newState;
+    case ActionTypes.ADD_COMMENT:
+      newState = {...state}
+      comments = newState.posts[action.payload.postId - 1].comments.comments;
+      action.payload.comment.id = comments.length + 1;
+      newState.posts[action.payload.postId - 1].comments = {
+        errorMessage: null,
+        comments: comments.concat(action.payload.comment),
         isLoading: false
       }
       return newState;

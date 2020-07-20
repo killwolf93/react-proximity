@@ -5,3 +5,5 @@ export const ADD_POSTS = 'ADD_POSTS';
 export const COMMENTS_LOADING = 'COMMENTS_LOADING';
 export const COMMENTS_FAILED = 'COMMENTS_FAILED';
 export const ADD_COMMENTS = 'ADD_COMMENTS';
+
+export const ADD_COMMENT = 'ADD_COMMENT';

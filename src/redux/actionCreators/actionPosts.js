@@ -41,7 +41,15 @@ export const addComments = (payload) => ({
   type: ActionTypes.ADD_COMMENTS, payload
 });
 
+export const addComment = (payload) => ({
+  type: ActionTypes.ADD_COMMENT, payload
+});
+
 export const commentsLoading = (postId) => ({
   type: ActionTypes.COMMENTS_LOADING,
   payload: postId
 });
+
+export const postComment = (comment, postId) => (dispatch) => {
+  dispatch(addComment({comment, postId}))
+}
