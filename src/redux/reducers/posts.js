@@ -15,16 +15,16 @@ export const Posts = (state = defaultState, action) => {
       return {...state, isLoading: false, errorMessage: action.payload, posts: []}
     case ActionTypes.ADD_COMMENTS:
       newState = {...state}
-      comments = newState.posts[action.payload.postId - 1].comments.comments;
       newState.posts[action.payload.postId - 1].comments = {
         errorMessage: null,
-        comments: comments.concat(action.payload.comments),
+        comments: action.payload.comments,
         isLoading: false
       }
       return newState;
     case ActionTypes.ADD_COMMENT:
       newState = {...state}
       comments = newState.posts[action.payload.postId - 1].comments.comments;
+      // Here I need to add and id to the new comment since that id will be use as key for the component
       action.payload.comment.id = comments.length + 1;
       newState.posts[action.payload.postId - 1].comments = {
         errorMessage: null,
@@ -53,5 +53,10 @@ export const Posts = (state = defaultState, action) => {
   }
 };
 
+/**
+ * This will get add to the post object a default commentsWrapper object
+ * @param  {json} post [json object that contains post information]
+ * @return {json}      [Post object with comments default info]
+ */
 const generatePostObject = (post) => ({...post, comments: defaultCommentsState})
 
