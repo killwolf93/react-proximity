@@ -25,13 +25,10 @@ export const postsLoading = () => ({
 
 export const fetchComments = (postId) => (dispatch) => {
   dispatch(commentsLoading(postId));
-  setTimeout(() => {
-    return sendRequest(`comments?postId=${postId}`)
-        .then(comments => dispatch(addComments({comments, postId})))
-        .catch(error => dispatch(commentsFailed({postId, error})));
-
-  }, 3000)
-};
+  return sendRequest(`comments?postId=${postId}`)
+      .then(comments => dispatch(addComments({comments, postId})))
+      .catch(error => dispatch(commentsFailed({postId, error})));
+}
 
 export const commentsFailed = (payload) => ({
   type: ActionTypes.COMMENTS_FAILED, payload
