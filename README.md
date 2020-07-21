@@ -14,4 +14,10 @@ The posts query will be sent with `?_limit=4` to not display that much informati
 
 "Reload comments from server" button will refresh the comments for the specific post, this will result in deleting the local added comments.
 
+
+### Improving Space (TO DO)
+
+- Add unit test
+- use variables on sass files
+
 ### Andrés Mata
