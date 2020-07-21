@@ -1,9 +1,10 @@
+@import './variables';
 .post {
   padding: 5px 0;
   margin: 15px 0;
 
   .card-title {
-    border-bottom: 1px solid #391A54;
+    border-bottom: 1px solid $base-color;
   }
 
   .card-body {
@@ -14,11 +15,11 @@
     }
 
     button, input[type="submit"] {
-      background: #391A54;
-      color: white;
+      background: $base-color;
+      color: $accent-font-color;
 
       &:hover {
-        color: white;
+        color: $accent-font-color;
       }
 
       i {

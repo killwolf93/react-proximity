@@ -1,10 +1,12 @@
+@import './variables';
+
 .comments {
   border-radius: 15px;
   padding: 15px;
 
   .comment {
     h6 {
-      color: #391A54
+      color: $base-color
     }
 
     p {
@@ -15,6 +17,6 @@
     border-radius: 15px;
     padding: 5px;
     margin: 5px 0;
-    border: 1px solid #391A54;
+    border: 1px solid $base-color;
   }
 }
