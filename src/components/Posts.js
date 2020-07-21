@@ -11,9 +11,6 @@ const mapStateToProps = state => {
     comments: state.comments
   }
 }
-const mapDispatchToProps = dispatch => ({
-  fetchPosts: () => dispatch(fetchPosts())
-})
 
 class Posts extends Component {
   componentDidMount() {
@@ -35,4 +32,4 @@ class Posts extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts);
+export default connect(mapStateToProps, {fetchPosts})(Posts);
